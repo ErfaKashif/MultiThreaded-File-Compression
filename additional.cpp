@@ -19,9 +19,8 @@
 #include <cstdlib>
 using namespace std;
 
-#define CHUNK_SIZE 10
-#define NUM_THREADS 4
-
+#define CHUNK_SIZE 1000
+#define NUM_THREADS 2
 // ================= STRUCTS =================
 struct Chunk {
     int chunkID;
@@ -56,7 +55,7 @@ mutex comp_mtx;
 mutex writeMutex;
 
 int BUFFER_SIZE = 4;
-
+long originalFileSize = 0;
 counting_semaphore<> comp_emptySlots(BUFFER_SIZE);
 counting_semaphore<> comp_filledSlots(0);
 bool comp_doneProducing = false;
@@ -389,7 +388,7 @@ void saveFile(const string& path,
     out.write((char*)&comp_numChunks, sizeof(int));
     out.write((char*)sizes.data(), sizes.size()*sizeof(int));
     out.write((char*)&totalBits, sizeof(int));
-
+    out.write((char*)&comp_fileSize, sizeof(long));
     lock_guard<mutex> lock(writeMutex);
     out.write((char*)data.data(), data.size());
 
@@ -533,17 +532,33 @@ void decompressChunk(HuffmanNode* root,
 {
     string result = "";
 
+    // special case: file contains only one unique character
+    if (!root->left && !root->right) {
+        int chars = bits; 
+        result.append(chars, root->ch);
+        decomp_chunks[idx] = result;
+        return;
+    }
+
     HuffmanNode* curr = root;
 
-    for (int i = 0; i < bits; i++) {
-        int globalBit = offset + i;
+    int decodedBits = 0;
+
+    while (decodedBits < bits) {
+
+        int globalBit = offset + decodedBits;
+
         int byteIndex = globalBit / 8;
         int bitPos = 7 - (globalBit % 8);
 
         int bit = (decomp_data[byteIndex] >> bitPos) & 1;
 
-        if (bit == 0) curr = curr->left;
-        else curr = curr->right;
+        if (bit == 0)
+            curr = curr->left;
+        else
+            curr = curr->right;
+
+        decodedBits++;
 
         if (!curr->left && !curr->right) {
             result += curr->ch;
@@ -553,7 +568,6 @@ void decompressChunk(HuffmanNode* root,
 
     decomp_chunks[idx] = result;
 }
-
 void decompWorker(HuffmanNode* root,vector<int>& offsets,int threadID){
     while (true) {
         decomp_filledSlots.acquire();
@@ -582,114 +596,161 @@ activeThreads--;
     }
 }
 
+// ================= DECOMPRESSION =================
+
 bool readCompressed(const string& path) {
     ifstream in(path, ios::binary);
+
     if (!in) return false;
 
-    in.read((char*)decomp_freq, 256*sizeof(int));
+    decomp_data.clear();
+    decomp_chunkSizes.clear();
+
+    in.read((char*)decomp_freq, 256 * sizeof(int));
+
     in.read((char*)&decomp_numChunks, sizeof(int));
 
     decomp_chunkSizes.resize(decomp_numChunks);
-    in.read((char*)decomp_chunkSizes.data(), decomp_numChunks*sizeof(int));
+
+    in.read((char*)decomp_chunkSizes.data(),
+            decomp_numChunks * sizeof(int));
 
     in.read((char*)&decomp_totalBits, sizeof(int));
-    if (decomp_numChunks <= 0 || decomp_totalBits <= 0) {
-      cout << "Invalid compressed file\n";
-      return false;
-    }
+    in.read((char*)&originalFileSize, sizeof(long));
     unsigned char byte;
+
     while (in.read((char*)&byte, 1))
         decomp_data.push_back(byte);
+
+    in.close();
 
     return true;
 }
 
-// ================= RUN DECOMPRESSION =================
+string decodeEntireFile(HuffmanNode* root) {
+
+    string output = "";
+
+    if (!root) return output;
+
+    // special case
+    if (!root->left && !root->right) {
+
+        for (int i = 0; i < decomp_totalBits; i++)
+            output += root->ch;
+
+        return output;
+    }
+
+    HuffmanNode* curr = root;
+
+    for (int i = 0; i < decomp_totalBits; i++) {
+
+        int byteIndex = i / 8;
+
+        int bitPos = 7 - (i % 8);
+
+        int bit =
+            (decomp_data[byteIndex] >> bitPos) & 1;
+
+        if (bit == 0)
+            curr = curr->left;
+        else
+            curr = curr->right;
+
+        if (!curr->left && !curr->right) {
+
+            output += curr->ch;
+
+            curr = root;
+        }
+    }
+
+    return output;
+}
+
 void runDecompression() {
-    processedChunks = 0;
-    compressedBytes = 0;
-activeThreads = 0;
-decomp_data.clear();
-decomp_chunkSizes.clear();
-decomp_chunks.clear();
-decomp_taskQueue = queue<int>();
-decomp_doneProducing = false;
-processedChunks = 0;
+
     string in, out;
 
-cout << "Enter compressed file (.bin): ";
-getline(cin >> ws, in);
+    cout << "\nEnter compressed file (.bin): ";
+    getline(cin >> ws, in);
 
-if (!fileExists(in)) {
-    cout << "Compressed file does not exist\n";
-    return;
-}
+    if (in.find(".bin") == string::npos) {
 
-if (!hasBinExtension(in)) {
-    cout << "Input compressed file must be .bin\n";
-    return;
-}
+        cout << "Invalid compressed file\n";
+        return;
+    }
 
-cout << "Enter output file [Press Enter for default]: ";
-getline(cin, out);
+    cout << "Enter output file path "
+            "(leave empty for auto): ";
 
-if (out.empty()) {
-    out = generateDecompressedPath(in);
-    cout << "Auto generated output: " << out << endl;
-    this_thread::sleep_for(chrono::seconds(10));
-}
-    decomp_data.clear();
-    decomp_chunkSizes.clear();
+    getline(cin, out);
+
+    if (out.empty()) {
+
+        size_t pos = in.find_last_of('.');
+
+        if (pos != string::npos)
+            out = in.substr(0, pos) + "_decompressed.txt";
+        else
+            out = in + "_decompressed.txt";
+    }
 
     if (!readCompressed(in)) {
-        cout << "Error reading file\n";
+
+        cout << "Error reading compressed file\n";
         return;
     }
 
     HuffmanNode* root = buildTree(decomp_freq);
 
-    decomp_chunks.resize(decomp_numChunks);
+    if (!root) {
 
-    vector<int> offsets(decomp_numChunks);
-    offsets[0] = 0;
-    for (int i = 1; i < decomp_numChunks; i++)
-        offsets[i] = offsets[i-1] + decomp_chunkSizes[i-1];
-
-    processedChunks = 0;
-    thread progressThread(progressBar, decomp_numChunks);
-
-    vector<thread> pool;
-
-    for (int i = 0; i < NUM_THREADS; i++)
-    pool.push_back(thread(decompWorker,root,ref(offsets),i));
-
-    for (int i = 0; i < decomp_numChunks; i++) {
-        decomp_emptySlots.acquire();
-        decomp_taskQueue.push(i);
-        decomp_filledSlots.release();
+        cout << "Failed to rebuild tree\n";
+        return;
     }
 
-    decomp_doneProducing = true;
+    cout << "\nDecompressing...\n";
 
-    for (int i = 0; i < NUM_THREADS; i++)
-        decomp_filledSlots.release();
+    auto start =
+        chrono::high_resolution_clock::now();
 
-    for (auto& t : pool) t.join();
-    // reset for next run
-decomp_doneProducing = false;
-    progressThread.join();
+    string finalOutput =
+        decodeEntireFile(root);
 
-    string finalOutput = "";
-    for (auto& s : decomp_chunks)
-        finalOutput += s;
+    auto end =
+        chrono::high_resolution_clock::now();
 
-    ofstream file(out);
+    double elapsed =
+        chrono::duration<double, milli>(end - start)
+            .count();
+
+    ofstream file(out, ios::binary);
+
+    if (!file) {
+
+        cout << "Error creating output file\n";
+        return;
+    }
+
     file << finalOutput;
+
     file.close();
 
-    cout << "\nDecompression done\n";
-}
-// ================= MAIN =================
+    cout << "\nDecompression completed\n";
+
+    cout << "Output File : " << out << endl;
+
+    cout << "Output Size : "
+         << finalOutput.size()
+         << " bytes\n";
+
+    cout << "Time Taken  : "
+         << fixed << setprecision(2)
+         << elapsed
+         << " ms\n";
+}// ================= MAIN =================
 int main() {
     while (true) {
         system("clear");

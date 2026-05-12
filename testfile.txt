@@ -1,0 +1,625 @@
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
+
+In the beginning, there was silence. Then came the words, tumbling over each other like stones in a river, each one finding its place in the great current of language. Words have power. Words have meaning. Words can build bridges between minds separated by vast distances of time and space.
+
+Consider the nature of data. Every file on a computer is nothing more than a sequence of ones and zeros, a long chain of binary decisions stretching from the first byte to the last. Yet from these simple building blocks arise photographs, music, novels, and entire virtual worlds. The richness of digital information emerges from the simplest possible foundation.
+
+Compression is the art of saying more with less. A skilled author removes every unnecessary word. A skilled engineer removes every unnecessary bit. Both are seeking the same thing: the pure essence of the message, stripped of all redundancy, all repetition, all waste.
+
+Huffman encoding exploits a simple observation: not all symbols appear with equal frequency. In English text, the letter E appears far more often than the letter Z. By assigning shorter codes to frequent symbols and longer codes to rare ones, we can represent the same information using fewer bits on average. This is the genius of David Huffman, who discovered this algorithm as a graduate student in 1952.
+
+The algorithm begins by counting how often each character appears in the data. It then builds a binary tree, always combining the two least frequent nodes into a new parent node. The process continues until only one node remains: the root of the Huffman tree. Each leaf of the tree represents a character, and its code is determined by the path from root to leaf, with each left branch representing a zero and each right branch representing a one.
+
+Threading adds another dimension to the problem. Modern processors have multiple cores, each capable of executing instructions independently and simultaneously. By dividing the input data into chunks and compressing each chunk on a separate thread, we can take advantage of this parallelism and dramatically reduce the time required for compression.
+
+But parallelism introduces new challenges. When multiple threads share data, we must ensure that they do not interfere with each other. Mutexes provide mutual exclusion, guaranteeing that only one thread at a time can access a shared resource. Semaphores control the flow of work, preventing producers from overwhelming consumers and consumers from reading data that has not yet been produced.
+
+The producer-consumer pattern is one of the oldest and most elegant solutions in concurrent programming. The producer generates work items and places them in a shared queue. The consumer retrieves work items from the queue and processes them. A bounded buffer limits the size of the queue, preventing the producer from racing too far ahead of the consumer and consuming excessive memory.
+
+Data flows through this system like water through a series of locks and channels. Each chunk of the input file is read, compressed, and written to the output in an orderly sequence. The threads work in parallel, but their outputs are carefully reassembled in the correct order, ensuring that the compressed file can be perfectly reconstructed during decompression.
+
+Decompression is the reverse journey. The compressed file contains the frequency table used to build the Huffman tree, the sizes of each compressed chunk, and the compressed data itself. By rebuilding the same tree that was used for compression, the decompressor can follow the same paths through the tree and recover each original character.
+
+The beauty of lossless compression is its perfection. Not a single bit of the original data is lost. Every character, every space, every punctuation mark is preserved exactly. The compressed file is a complete and faithful representation of the original, just expressed more efficiently.
+
+This is the story of information: how it is created, how it is stored, how it is transmitted, and how it is compressed. From the earliest cave paintings to the latest cloud storage systems, humans have always sought ways to preserve and communicate knowledge more efficiently.
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!@#$%^&*()_+-=[]{}|;:,.<>?
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccccccccccccccccccccccccccccccc
+eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+The end.
+
